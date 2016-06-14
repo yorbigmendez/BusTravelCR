@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- JQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Angular -->
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <!-- APP -->
+    <script src="../app.js"></script>
+    <script src="./admin.controller.js"></script>
+
+    <!-- Styles -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.8/angular-materialize.min.js"></script>
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="../styles/style.css" type="text/css" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+</head>
+
+<body ng-App="MapsApplication" ng-controller="adminController">
+
+
+    <div ng-include="'../templates/header.html'"></div>
+
+
+    <!-- CONTAINER STUFF--->
+        <div class="row center">
+                <br><br>
+                <h1 class="header center teal-text text-lighten-2">New Route</h1>
+            <br><br>
+        </div>
+            <div class="row card-panel hooverable">
+                <div class="col-md-6">
+                    <form novalidate class="simple-form" name="addBusTerminal">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label for="singleSelect">Single Select: </label>
+                                <select name="singleSelect" ng-model="">
+                                        <option value="option-1">Option 1</option>
+                                        <option value="option-2">Option 2</option>
+                                        <option value="option-3">Option 3</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="row center" style="margin-top: 50;margin-bottom:50;">
+                            <label for="input_starttime">Time</label>
+                            <input id="input_starttime" input-clock data-twelvehour="false" type="text">
+                        </div>
+                        <div class="row center">
+                           <button type="submit"  class="btn-large waves-effect waves-light teal lighten-1" ng-click="showDialog()">Add Route</button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="row" style="height:500px;background-color:#000000">
+                        <p> Mapa aqui</p>
+                    </div>
+                </div>
+
+            </div>
+    <div ng-include="'../templates/footer.html'"></div>
+
+</body>
+
+</html>
