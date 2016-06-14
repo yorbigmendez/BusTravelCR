@@ -19,7 +19,7 @@
     <link href="../styles/style.css" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-    <!--  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -29,61 +29,61 @@
     <div ng-include="'../templates/header.html'"></div>
 
 
-    <!-- CONTAINER STUFF--->
-        <div class="row center">
-                <br><br>
-                <h1 class="header center teal-text text-lighten-2">New Terminal</h1>
+<!-- CONTAINER STUFF--->
+    <div class="row center">
             <br><br>
+            <h1 class="header center teal-text text-lighten-2">New Terminal</h1>
+        <br><br>
+    </div>
+    <div class="row card-panel hooverable">
+        <div class="col-md-6">
+            <div class="row" style="height:500px;background-color:#000000">
+                <p> Mapa aqui</p>
+            </div>
         </div>
-        <div class="row card-panel hooverable">
-            <div class="col-md-6">
-                <div class="row" style="height:500px;background-color:#000000">
-                    <p> Mapa aqui</p>
+        <div class="col-md-6">
+
+            <form novalidate class="simple-form" name="addBusTerminal">
+                <div class="row center">
+                    <h4 class="teal-text">Bus Terminal name:</h4>
+                    <input type="text" placeholder="Terminal Name" name="name" style="text-align:center;width:300px;font-size: 20px;" ng-model="busTerminal" >
+
                 </div>
-            </div>
-            <div class="container">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
-
-                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                      ...
+                <div class="row center">
+                    <div class="col-md-6">
+                        <h4 class="teal-text">Selected point:</h4>
+                        <input type="text" placeholder="X" name="pointX" style="text-align:center;width:100px;font-size: 20px;" ng-model="pointX" >
                     </div>
-                  </div>
+                    <div class="col-md-6">
+                        <h4 class="teal-text">Selected pointY:</h4>
+                        <input type="text" placeholder="Y" name="pointY" style="text-align:center;width:100px;font-size: 20px;" ng-model="pointY" >
+                    </div>
+
                 </div>
-            </div>
-            <div class="col-md-6">
+                <div class="row center" style="margin-top: 50;">
+                    <h4 class="teal-text">Map movements</h4>
+                    <img src="../images/left_icon.png" ng-click="moveMap('left')" class="img-circle" alt="Cinque Terre" width="50" height="50">
+                    <img src="../images/up_icon.png" ng-click="moveMap('up')" class="img-circle" alt="Cinque Terre" width="50" height="50">
+                    <img src="../images/down_icon.png"ng-click="moveMap('down')"  class="img-circle" alt="Cinque Terre" width="50" height="50">
+                    <img src="../images/right_icon.png" ng-click="moveMap('right')" class="img-circle" alt="Cinque Terre" width="50" height="50">
+                </div>
 
-                <form novalidate class="simple-form" name="addBusTerminal">
-                    <div class="row center">
-                        <h4 class="teal-text">Bus Terminal name:</h4>
-                        <input type="text" placeholder="Terminal Name" name="name" style="text-align:center;width:300px;font-size: 20px;" ng-model="busTerminal" >
+                <div class="row center" style="margin-top: 50;margin-bottom:50;">
+                    <h4 class="teal-text">Zoom actions</h4>
+                    <img src="../images/zoom_out.png" ng-click="zoom('out')" alt="Zoom Out" width="50" height="50">
+                    <img src="../images/zoom_in.png" ng-click="zoom('in')"  alt="Zoom In" width="50" height="50">
+                </div>
+                <div class="row center">
+                   <button type="submit"  class="btn-large waves-effect waves-light teal lighten-1" ng-click="databaseAction('terminal','insert')">Add Terminal</button>
 
-                    </div>
-                    <div class="row center" style="margin-top: 50;">
-                        <h4 class="teal-text">Map movements</h4>
-                        <img src="../images/left_icon.png" ng-click="moveMap('left')" class="img-circle" alt="Cinque Terre" width="50" height="50">
-                        <img src="../images/up_icon.png" ng-click="moveMap('up')" class="img-circle" alt="Cinque Terre" width="50" height="50">
-                        <img src="../images/down_icon.png"ng-click="moveMap('down')"  class="img-circle" alt="Cinque Terre" width="50" height="50">
-                        <img src="../images/right_icon.png" ng-click="moveMap('right')" class="img-circle" alt="Cinque Terre" width="50" height="50">
-                    </div>
-
-                    <div class="row center" style="margin-top: 50;margin-bottom:50;">
-                        <h4 class="teal-text">Zoom actions</h4>
-                        <img src="../images/zoom_out.png" ng-click="zoom('out')" alt="Zoom Out" width="50" height="50">
-                        <img src="../images/zoom_in.png" ng-click="zoom('in')"  alt="Zoom In" width="50" height="50">
-                    </div>
-                    <div class="row center">
-                       <button type="submit"  class="btn-large waves-effect waves-light teal lighten-1" ng-click="insertRoute()">Add Terminal</button>
-
-                    </div>
+                </div>
 
 
 
-                </form>
-            </div>
-
+            </form>
         </div>
+
+    </div>
     <div ng-include="'../templates/footer.html'"></div>
 
 </body>
