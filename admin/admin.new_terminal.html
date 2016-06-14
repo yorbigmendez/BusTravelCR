@@ -13,13 +13,13 @@
     <!-- Styles -->
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.8/angular-materialize.min.js"></script>
 
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Stylesheet -->
-    <link href="../styles/style.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="../styles/style.css" type="text/css" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -74,7 +74,7 @@
                     <img src="../images/zoom_in.png" ng-click="zoom('in')"  alt="Zoom In" width="50" height="50">
                 </div>
                 <div class="row center">
-                   <button type="submit"  class="btn-large waves-effect waves-light teal lighten-1" ng-click="databaseAction('terminal','insert')">Add Terminal</button>
+                   <button type="submit"  class="btn-large waves-effect waves-light teal lighten-1" ng-click="databaseAction('terminal','get')">Add Terminal</button>
 
                 </div>
 

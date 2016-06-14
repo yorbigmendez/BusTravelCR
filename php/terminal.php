@@ -17,8 +17,8 @@ class Terminal{
         while($row = pg_fetch_row($result)){
             $array = array(
                 "id_terminal"=> $row[0],
-                "nombre"=> $row[1],
-                "point" => json_decode($row[2])
+                "nombre"=> $row[1]
+                //"point" => json_decode($row[2])
             );
             array_push($respuesta,$array);
         }

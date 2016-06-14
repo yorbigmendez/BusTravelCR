@@ -41,19 +41,14 @@
                         <div class="row">
                             <div class="col-md-10 col-md-offset-2">
                                 <label for="singleSelect">Single Select: </label>
-                                <select name="singleSelect" ng-model="">
-                                        <option value="option-1">Option 1</option>
-                                        <option value="option-2">Option 2</option>
-                                        <option value="option-3">Option 3</option>
-                                </select>
+
                             </div>
 
                         </div>
 
                         <div class="row center" style="margin-top: 50;margin-bottom:50;">
-                            <div class="input-field col s12">
-                                <label for="timepicker">Time</label>
-                                <input id="timepicker" class="timepicker" type="time">
+                            <div class="input-field col s12 col-md-offset-6">
+                                Time should go here
                             </div>
                         </div>
                         <div class="row center">
@@ -64,7 +59,6 @@
                 </div>
 
                 <div class="col-md-6">
-
                     <div class="row" style="height:500px;background-color:#000000">
                         <p> Mapa aqui</p>
                     </div>
@@ -72,12 +66,6 @@
 
             </div>
     <div ng-include="'../templates/footer.html'"></div>
-    <script>
-      $('#timepicker').pickatime({
-        autoclose: false,
-        twelvehour: false
-      });
-    </script>
 </body>
 
 </html>
