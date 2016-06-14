@@ -33,6 +33,7 @@
                 <br><br>
                 <h1 class="header center teal-text text-lighten-2">New Route</h1>
             <br><br>
+
         </div>
             <div class="row card-panel hooverable">
                 <div class="col-md-6">
@@ -50,8 +51,10 @@
                         </div>
 
                         <div class="row center" style="margin-top: 50;margin-bottom:50;">
-                            <label for="input_starttime">Time</label>
-                            <input id="input_starttime" input-clock data-twelvehour="false" type="text">
+                            <div class="input-field col s12">
+                                <label for="timepicker">Time</label>
+                                <input id="timepicker" class="timepicker" type="time">
+                            </div>
                         </div>
                         <div class="row center">
                            <button type="submit"  class="btn-large waves-effect waves-light teal lighten-1" ng-click="showDialog()">Add Route</button>
@@ -69,7 +72,12 @@
 
             </div>
     <div ng-include="'../templates/footer.html'"></div>
-
+    <script>
+      $('#timepicker').pickatime({
+        autoclose: false,
+        twelvehour: false
+      });
+    </script>
 </body>
 
 </html>
