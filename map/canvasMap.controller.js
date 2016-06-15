@@ -1,4 +1,4 @@
-app.controller("canvasController", function ($scope, $http) {
+angular.module('MapsApplication',[]).controller("canvasController", function ($scope, $http) {
    
     $scope.distritos = new Object();
 

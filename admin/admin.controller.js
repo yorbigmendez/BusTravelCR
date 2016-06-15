@@ -1,4 +1,21 @@
-app.controller("adminController", function ($scope, $http) {
+angular.module('MapsApplication', []).controller("adminController", function ($scope, $http) {
+    $scope.countries = [
+        {
+            name: "Nepal"
+            , district: ['Gulmi', "Palpa"]
+        }
+        , {
+            name: "Nepal"
+            , district: ['Gulmi', "Palpa"]
+        }
+        , {
+            name: "India"
+            , district: ['Gulmi', "Palpa"]
+        }
+    ];
+
+
+
 
     //name of terminal
     $scope.busTerminal = "";
@@ -53,25 +70,30 @@ app.controller("adminController", function ($scope, $http) {
         $scope.showDialog = true;
     };
 
-    //Database actions for admin views
-    $scope.databaseAction = function (view , action) {
-        //Get terminals
-        if (view == "terminal"  && action == "get") {
-            //Get all terminals
-            $http({method: 'GET', url: '../php/terminal.php?action=get'}).
-                then(
-                        function (response)
-                        {
-                            $scope.terminals = response;
-                            console.log(response);
+    function load() {
+        //Get all terminals
+        $http({
+            method: 'GET'
+            , url: '../php/terminal.php?action=get'
+        }).
+        then(
+            function (response) {
+                $scope.terminals = response;
+                console.log($scope.terminals);
 
-                        },
-                        function ()
-                        {
-                            console.log("Error loading the terminals");
-                        });
+            }
+            , function () {
+                console.log("Error loading the terminals");
+            });
+    }
+    //Database actions for admin views
+    $scope.databaseAction = function (view, action) {
+        //Get terminals
+        //if (view == "terminal" && action == "get") {
+
             //http://localhost:8080//BusTravelCR/php/newTerminal.php?action=get
-        }else if(view.equals("terminal") && action.equals("insert")){//Insert Terminal
+        //}
+        if (view.equals("terminal") && action.equals("insert")) { //Insert Terminal
             /*$http({method: 'GET', url: '../php/terminal.php?action=get'}).
                 then(
                         function (response)
@@ -87,8 +109,5 @@ app.controller("adminController", function ($scope, $http) {
             //http://localhost:8080//BusTravelCR/php/newTerminal.php?action=insert&name=Prueba1&locationXY=asdf
         }
     };
-
-
+    load();
 });
-
-
