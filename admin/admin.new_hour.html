@@ -1,0 +1,129 @@
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <!-- JQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Angular -->
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <!-- APP -->
+    <script src="../app.js"></script>
+    <script src="./admin.controller.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <!-- Bootstrap Material -->
+    <link href="../bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap-material-design/dist/css/ripples.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap-material-design/dist/css/ripples.min.css" type="text/css" rel="stylesheet">
+    <!-- Compiled and minified CSS-->
+    <link href="../styles/style.css" type="text/css" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <!-- Bootstrap Script -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="../bower_components/bootstrap-material-design/dist/js/material.min.js" type="text/css" rel="stylesheet">
+</head>
+
+<body ng-App="MapsApplication" ng-controller="adminController" style="background-color:#F1F1F2;">
+    <!-- Page Header
+    background-color:#F1F1F2;
+    GRAY COLOR: #BCBABE
+    --->
+    <div id="header">
+        <div ng-include="'../templates/header.html'"></div>
+    </div>
+    <!-- CONTAINER STUFF--->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row" style="height:400px;background-color:#000000">
+                    <p> Mapa aqui</p>
+                </div>
+            </div>
+            <div class="col-md-4" style="text-align:center;">
+                <div class="well bs-component col-md-12" style=" height:400px;">
+                    <form class=" form-horizontal">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <legend>Route Endpoints</legend>
+                                    <div class="form-group" style="margin-left:50px;margin-right:50px;">
+                                        <div class="row">
+                                            <label class="control-label" for="repeatSelect">Begin point</label>
+                                            <select name="repeatSelect" id="repeatSelect">
+                                                <option></option>
+                                                <option ng-repeat="option in nombresDistritos track by $index" value="{{option}}">{{option}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <label class="control-label" for="repeatSelect">End point</label>
+                                            <select name="repeatSelect" id="repeatSelect">
+                                                <option></option>
+                                                <option ng-repeat="option in nombresDistritos track by $index" value="{{option}}">{{option}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <p>Date picker here</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group" style="margin-top: 0;">
+                                                <!-- inline style is just to demo custom css to put checkbox below input above -->
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div style="margin-left:20%; margin-right:20%;">
+                                                <button type="submit" class="btn btn-raised btn-primary" ng-click="databaseAction('route','insert')">Add Terminal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="margin-top:5px;">
+                <div style="margin-left:50px;margin-right:50px;">
+                    <div class="col-md-6">
+                        <legend style="text-align:center;">Map Actions</legend>
+                        <div class="col-md-12" style="text-align:center;">
+                            <img src="../images/left_icon.png" ng-click="moveMap('left')" class="img-circle" alt="Move Left" width="50" height="50">
+                            <img src="../images/up_icon.png" ng-click="moveMap('up')" class="img-circle" alt="Move Up" width="50" height="50">
+                            <img src="../images/down_icon.png" ng-click="moveMap('down')" class="img-circle" alt="Move Down" width="50" height="50">
+                            <img src="../images/right_icon.png" ng-click="moveMap('right')" class="img-circle" alt="Move Right" width="50" height="50">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <legend style="text-align:center;">Zoom Actions</legend>
+                        <div class="col-md-12" style="text-align:center;">
+                            <img src="../images/zoom_out.png" ng-click="zoom('out')" alt="Zoom Out" width="50" height="50">
+                            <img src="../images/zoom_in.png" ng-click="zoom('in')" alt="Zoom In" width="50" height="50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div ng-include="'../templates/footer.html'"></div>
+</body>
+
+</html>

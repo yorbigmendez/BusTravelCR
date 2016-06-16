@@ -1,5 +1,12 @@
 angular.module('MapsApplication',[]).controller("canvasController", function ($scope, $http) {
-   
+    //Access to admin, credentials
+    $scope.credentials = {
+            user: "admin",
+            pass: "admin"
+    };
+    $scope.user = 'Username';
+    $scope.pass = 'Password';
+
     $scope.distritos = new Object();
 
     //Dimensiones del visor
@@ -16,7 +23,8 @@ angular.module('MapsApplication',[]).controller("canvasController", function ($s
     //Zoom del visor
     $scope.zoom = 0;
     $scope.zoomType = 1;
-
+    
+    //Gets the minimuns for drawing
     $scope.getMins = function () {
         $scope.xmin = $scope.distritos.data.Dimensiones.xmin;
         $scope.ymin = $scope.distritos.data.Dimensiones.ymin;
@@ -44,7 +52,7 @@ angular.module('MapsApplication',[]).controller("canvasController", function ($s
 //Dibuja los datos en el canvas
     $scope.dibujaDistritos = function ()
     {
-      
+        
         var canvas = document.getElementById('canvasDistritos');
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -53,14 +61,13 @@ angular.module('MapsApplication',[]).controller("canvasController", function ($s
             var size = value.coordenada.coordinates[0][0].length;
             for (i = 0; i < (size - 2); i++)
             {
+                //Valor relacional de columnas
                 var x = value.coordenada.coordinates[0][0][i][0];
                 var y = value.coordenada.coordinates[0][0][i][1];
-                
-                
+                //Factor proporcional de punto a donde se debe de dibujar
                 x = Math.round((x - $scope.xmin) / $scope.factorProporcional);
                 y = Math.round((y - $scope.ymin) / $scope.factorProporcional);
                 
-                console.log(x + " , "+ y);
                 
                 y = $scope.canvasY - y;
                 
@@ -90,4 +97,6 @@ angular.module('MapsApplication',[]).controller("canvasController", function ($s
         });
     };
     $scope.obtenerDistritos();
+    //Days
+    $scope.days = ['Monday',"Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 });

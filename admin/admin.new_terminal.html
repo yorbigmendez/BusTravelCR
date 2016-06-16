@@ -20,20 +20,17 @@
     <link href="../bower_components/bootstrap-material-design/dist/css/ripples.min.css" type="text/css" rel="stylesheet">
     <!-- Compiled and minified CSS-->
     <link href="../styles/style.css" type="text/css" rel="stylesheet">
-    <!-- Compiled and minified JavaScript -->
     <!-- Bootstrap Script -->
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="../bower_components/bootstrap-material-design/dist/js/material.min.js" type="text/css" rel="stylesheet">
 </head>
 
-<body ng-App="MapsApplication" ng-controller="adminController">
+<body ng-App="MapsApplication" ng-controller="adminController" >
     <!-- Page Header--->
     <div id="header">
         <div ng-include="'../templates/header.html'"></div>
     </div>
     <div class="container">
-        <br>
-        <br>
         <div class="row">
             <div class=" bs-component">
                 <div class='center'>
@@ -43,29 +40,42 @@
         </div>
         <br>
         <br>
+        <!-- Canvas and Form for new insertion -->
         <div class="row">
             <div class="col-md-12">
-                <div class="row" style="height:500px;background-color:#000000">
-                    <p> Mapa aqui</p>
+                <div class="row">
+                    <div class="col-md-8">
+                    <canvas id="canvasDistritos" width="{{canvasX}}" height="{{canvasY}}" style="border:1px solid;">
+                    </canvas>
+                        </div>
+                    <div class="well bs-component col-md-4"  style="padding-left:50px;padding-right:50px;">
+                       <legend>New Terminal</legend>
+                       <div class="row">
+                        <label>Search in district</label>
+                        <fieldset>
+                            <select name="repeatSelect" id="repeatSelect">
+                                <option></option>
+                              <option ng-repeat="option in nombresDistritos track by $index" value="{{option}}">{{option}}</option>
+                            </select>
+                        </fieldset>
+                        </div>
+                        <div class="row">
+                            <form class=" form-horizontal" ng-submit="databaseAction('terminal','insert')">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label>Terminal Name</label>
+                                        <input class="form-control input-lg" ng-model="busTerminal" type="text" id="inputName" style="text-align:center;">
+                                        <button type="submit" style="margin-left:25%;" class="btn btn-raised btn-primary">Add Terminal</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row" style="margin-top:50px">
-            <div class="col-md-12" style="text-align:center;">
-                <div class="well bs-component col-md-3" style="height:300px;">
-                    <div style="margin-left:50px;margin-right:50px;">
-                        <form class=" form-horizontal">
-                            <fieldset>
-                                <legend>New Terminal</legend>
-                                <div class="form-group">
-                                    <label class="control-label" for="inputTerminal">Terminal Name</label>
-                                    <input class="form-control input-lg" type="text" id="inputName">
-                                    <button type="submit" class="btn btn-raised btn-primary" ng-click="databaseAction('terminal','insert')">Add Terminal</button>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
+            <div class="col-md-10 col-md-offset-2" style="text-align:center;">
                 <div class="well bs-component col-md-8" style="margin-left:50px;height:300px;">
                     <div style="margin-left:50px;margin-right:50px;">
                         <form class=" form-horizontal">
@@ -97,6 +107,7 @@
                 </div>
             </div>
         </div>
+        <!-- Terminal Table -->
         <div class="row" style="margin-top:50px;">
             <div style="text-align:center;">
                 <h1>List of Terminals</h1>
@@ -104,8 +115,7 @@
                     <table class="table table-striped table-hover ">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>ID #</th>
+                                <th>ID#</th>
                                 <th>Terminal Name</th>
                             </tr>
                         </thead>
@@ -113,7 +123,6 @@
                            <tr class="info" ng-repeat="x in terminals.data">
                                <td>{{x.id_terminal}}</td>
                                <td>{{x.nombre}}</td>
-                               <td>hola</td>
                            </tr>
                         </tbody>
                     </table>
@@ -121,6 +130,7 @@
             </div>
         </div>
     </div>
+    <!-- Footer include -->
     <div ng-include="'../templates/footer.html'"></div>
 </body>
 
